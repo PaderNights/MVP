@@ -1,0 +1,280 @@
+{
+  "data": {
+    "user": [
+      {
+        "name": "Ivy",
+        "email": "test@gmx.de",
+        "createdAt": "2015-04-12T17:22:08.323Z",
+        "updatedAt": "2015-04-12T17:22:08.323Z",
+        "id": 1
+      }
+    ],
+    "category": [
+      {
+        "name": "Party",
+        "marker": "party",
+        "createdAt": "2015-05-08T21:25:48.822Z",
+        "updatedAt": "2015-05-08T21:25:48.822Z",
+        "id": 1
+      }
+    ],
+    "event": [
+      {
+        "name": "\"FeierImResi\"",
+        "startdate": "2015-01-09T20:00:00.000Z",
+        "enddate": "2015-01-11T05:00:00.000Z",
+        "location_id": 1,
+        "organizer_id": 1,
+        "createdAt": "2015-05-09T10:41:32.735Z",
+        "updatedAt": "2015-05-09T10:41:32.735Z",
+        "id": 1
+      },
+      {
+        "name": "\"Saufen1000\"",
+        "startdate": "2015-01-09T22:00:00.000Z",
+        "enddate": "2015-01-11T05:00:00.000Z",
+        "location_id": 2,
+        "organizer_id": 1,
+        "createdAt": "2015-05-09T10:43:42.543Z",
+        "updatedAt": "2015-05-09T10:43:42.543Z",
+        "id": 2
+      }
+    ],
+    "location": [
+      {
+        "name": "Residenz",
+        "latitude": "51.71732463",
+        "longitude": "8.75151157",
+        "createdAt": "2015-05-09T10:27:06.138Z",
+        "updatedAt": "2015-05-09T10:27:06.138Z",
+        "id": 1
+      },
+      {
+        "name": "Residenz",
+        "latitude": "51.71443976",
+        "longitude": "8.75179052",
+        "createdAt": "2015-05-09T10:29:05.621Z",
+        "updatedAt": "2015-05-09T10:29:05.621Z",
+        "id": 2
+      },
+      {
+        "name": "Capitol",
+        "latitude": "51.71443976",
+        "longitude": "8.75179052",
+        "createdAt": "2015-05-09T10:29:29.435Z",
+        "updatedAt": "2015-05-09T10:29:29.435Z",
+        "id": 3
+      }
+    ],
+    "organizer": [
+      {
+        "name": "SIGNS",
+        "website": "http://www.signs-paderborn.de",
+        "createdAt": "2015-05-08T21:31:47.152Z",
+        "updatedAt": "2015-05-08T21:31:47.152Z",
+        "id": 1
+      }
+    ],
+    "event_id__location_events": [],
+    "event_id__organizer_events": []
+  },
+  "schema": {
+    "user": {
+      "name": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "encryptedPassword": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "category": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "event": {
+      "name": {
+        "type": "string"
+      },
+      "startdate": {
+        "type": "datetime"
+      },
+      "enddate": {
+        "type": "datetime"
+      },
+      "pre_costs": {
+        "type": "float"
+      },
+      "post_costs": {
+        "type": "float"
+      },
+      "description": {
+        "type": "text"
+      },
+      "image": {
+        "type": "string"
+      },
+      "location_id": {
+        "type": "integer",
+        "model": "location",
+        "foreignKey": true,
+        "alias": "location_id"
+      },
+      "organizer_id": {
+        "type": "integer",
+        "model": "organizer",
+        "foreignKey": true,
+        "alias": "organizer_id"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "location": {
+      "name": {
+        "type": "string"
+      },
+      "image": {
+        "type": "string"
+      },
+      "longitude": {
+        "type": "string"
+      },
+      "latitude": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "organizer": {
+      "name": {
+        "type": "string"
+      },
+      "website": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "event_id__location_events": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "location_events": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "location",
+        "on": "id",
+        "via": "event_id"
+      },
+      "event_id": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "event",
+        "on": "id",
+        "via": "location_events"
+      }
+    },
+    "event_id__organizer_events": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "organizer_events": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "organizer",
+        "on": "id",
+        "via": "event_id"
+      },
+      "event_id": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "event",
+        "on": "id",
+        "via": "organizer_events"
+      }
+    }
+  },
+  "counters": {
+    "user": {
+      "id": 1
+    },
+    "category": {
+      "id": 1
+    },
+    "event": {
+      "id": 2
+    },
+    "location": {
+      "id": 3
+    },
+    "organizer": {
+      "id": 1
+    },
+    "event_id__location_events": {},
+    "event_id__organizer_events": {}
+  }
+}
